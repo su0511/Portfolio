@@ -4,136 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graphic Design Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Avenir:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="logo">Your Name</div>
-        <ul class="nav-links">
-            <li><a href="#work">Work</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
+        <div class="container">
+            <div class="logo">Your Name</div>
+            <ul class="nav-links" role="navigation" aria-label="Main navigation">
+                <li><a href="#work">WORK</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+            <div class="burger" aria-label="Toggle navigation menu" role="button" tabindex="0" aria-expanded="false">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Graphic Designer</h1>
-            <p>Creating visual experiences through design</p>
-        </div>
-    </section>
-
     <!-- Work Section -->
     <section id="work" class="work">
-        <h2>Selected Works</h2>
-        <div class="portfolio-grid">
-            <!-- Brand Identity -->
-            <div class="portfolio-item">
-                <img src="assets/brand1.jpg" alt="Brand Identity Project">
-                <div class="overlay">
-                    <h3>Brand Identity</h3>
-                    <p>Logo Design & Brand Guidelines</p>
-                </div>
-            </div>
-            
-            <!-- Print Design -->
-            <div class="portfolio-item">
-                <img src="assets/print1.jpg" alt="Print Design Project">
-                <div class="overlay">
-                    <h3>Print Design</h3>
-                    <p>Editorial & Publication Design</p>
-                </div>
-            </div>
-            
-            <!-- Packaging -->
-            <div class="portfolio-item">
-                <img src="assets/packaging1.jpg" alt="Packaging Design">
-                <div class="overlay">
-                    <h3>Packaging Design</h3>
-                    <p>Product Packaging & Labels</p>
-                </div>
-            </div>
-            
-            <!-- Typography -->
-            <div class="portfolio-item">
-                <img src="assets/type1.jpg" alt="Typography Project">
-                <div class="overlay">
-                    <h3>Typography</h3>
-                    <p>Custom Type Design</p>
-                </div>
-            </div>
-            
-            <!-- Poster Design -->
-            <div class="portfolio-item">
-                <img src="assets/poster1.jpg" alt="Poster Design">
-                <div class="overlay">
-                    <h3>Poster Design</h3>
-                    <p>Event & Exhibition Posters</p>
-                </div>
-            </div>
-            
-            <!-- Illustration -->
-            <div class="portfolio-item">
-                <img src="assets/illustration1.jpg" alt="Illustration Work">
-                <div class="overlay">
-                    <h3>Illustration</h3>
-                    <p>Digital & Traditional Art</p>
-                </div>
+        <div class="container">
+            <header class="section-header">
+                <h1 class="section-title">Selected Works</h1>
+                <p class="section-subtitle">A curated collection of design projects</p>
+            </header>
+            <div class="portfolio-grid">
+                <!-- Brand Identity -->
+                <a href="project1.html" class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="assets/brand1.jpg" alt="Brand Identity Project">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Brand Identity</h3>
+                        <p class="portfolio-description">Logo Design & Brand Guidelines</p>
+                        <span class="portfolio-year">2024</span>
+                    </div>
+                </a>
+
+                <!-- Print Design -->
+                <a href="project2.html" class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="assets/print1.jpg" alt="Print Design Project">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Print Design</h3>
+                        <p class="portfolio-description">Editorial & Publication Design</p>
+                        <span class="portfolio-year">2024</span>
+                    </div>
+                </a>
+
+                <!-- Packaging -->
+                <a href="project3.html" class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="assets/packaging1.jpg" alt="Packaging Design">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Packaging Design</h3>
+                        <p class="portfolio-description">Product Packaging & Labels</p>
+                        <span class="portfolio-year">2023</span>
+                    </div>
+                </a>
+
+                <!-- Typography -->
+                <a href="project4.html" class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="assets/type1.jpg" alt="Typography Project">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Typography</h3>
+                        <p class="portfolio-description">Custom Type Design</p>
+                        <span class="portfolio-year">2023</span>
+                    </div>
+                </a>
+
+                <!-- Poster Design -->
+                <a href="project5.html" class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="assets/poster1.jpg" alt="Poster Design">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Poster Design</h3>
+                        <p class="portfolio-description">Event & Exhibition Posters</p>
+                        <span class="portfolio-year">2023</span>
+                    </div>
+                </a>
+
+                <!-- Illustration -->
+                <a href="project6.html" class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="assets/illustration1.jpg" alt="Illustration Work">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Illustration</h3>
+                        <p class="portfolio-description">Digital & Traditional Art</p>
+                        <span class="portfolio-year">2022</span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2>About</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>I am a graphic designer with a passion for creating meaningful visual experiences. My work focuses on brand identity, print design, and typography, combining traditional design principles with contemporary aesthetics.</p>
-                <p>With a keen eye for detail and a strong understanding of visual communication, I help brands and individuals express their unique stories through thoughtful design solutions.</p>
-            </div>
-            <div class="skills">
-                <h3>Expertise</h3>
-                <ul>
-                    <li>Brand Identity & Logo Design</li>
-                    <li>Print & Publication Design</li>
-                    <li>Typography & Type Design</li>
-                    <li>Packaging Design</li>
-                    <li>Poster & Exhibition Design</li>
-                    <li>Digital Illustration</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <h2>Contact</h2>
-        <div class="contact-content">
-            <form class="contact-form">
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+        <div class="container">
+            <header class="section-header">
+                <h2 class="section-title">Contact</h2>
+                <p class="section-subtitle">Let's discuss your next project</p>
+            </header>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p class="contact-text">I'm always interested in new opportunities and collaborations. Whether you have a project in mind or just want to say hello, I'd love to hear from you.</p>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
             <div class="social-links">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-behance"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-dribbble"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">&copy; 2024 Your Name. All rights reserved.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
