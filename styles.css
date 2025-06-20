@@ -150,8 +150,7 @@ p {
     position: fixed;
     top: 0;
     width: 100%;
-    background: var(--color-ivory);
-    border-bottom: 1px solid var(--color-light-gray);
+    background: transparent;
     z-index: 1000;
     padding: var(--space-lg) 0;
     transition: all 0.2s ease;
@@ -215,7 +214,7 @@ p {
 }
 
 .nav-links a.active {
-    color: var(--color-forest-green);
+    color: var(--color-warm-charcoal);
 }
 
 .nav-links a.active::after {
@@ -365,15 +364,16 @@ p {
 
 .experience-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-2xl);
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--space-3xl);
     margin-top: var(--space-2xl);
 }
 
 .experience-item {
     background: var(--color-warm-white);
-    padding: var(--space-2xl);
+    padding: var(--space-3xl);
     border: 1px solid var(--color-light-gray);
+    min-height: 200px;
 }
 
 .experience-item h4 {
@@ -400,13 +400,13 @@ p {
    ================================== */
 
 .project-detail {
-    padding: calc(80px + var(--space-4xl)) 0 var(--space-4xl) 0;
+    padding: calc(80px + var(--space-2xl)) 0 var(--space-4xl) 0;
     background: var(--color-ivory);
     min-height: 100vh;
 }
 
 .back-navigation {
-    margin-bottom: var(--space-3xl);
+    margin-bottom: var(--space-2xl);
 }
 
 .back-link {
@@ -429,11 +429,8 @@ p {
 }
 
 .project-header {
-    text-align: center;
-    margin-bottom: var(--space-4xl);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: left;
+    margin-bottom: var(--space-3xl);
 }
 
 .project-title {
@@ -441,81 +438,48 @@ p {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 500;
     color: var(--color-forest-green);
-    margin-bottom: var(--space-md);
+    margin-bottom: 0;
 }
 
-.project-subtitle {
-    font-size: 1.25rem;
-    color: var(--color-warm-gray);
-    font-style: italic;
-    margin-bottom: var(--space-lg);
-}
-
-.project-meta {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-xl);
-    font-size: 0.9rem;
-    color: var(--color-warm-charcoal);
-}
-
-.project-meta span {
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.project-image-container {
-    margin-bottom: var(--space-4xl);
-    text-align: center;
-}
-
-.project-image {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid var(--color-light-gray);
-    box-shadow: 0 4px 20px rgba(45, 74, 58, 0.1);
-}
-
-.project-description {
+/* New Project Content Layout - Golden Ratio */
+.project-content {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1.618fr 1fr; /* Golden ratio */
     gap: var(--space-4xl);
     margin-bottom: var(--space-4xl);
 }
 
-.description-content h3 {
+.project-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xl);
+}
+
+.project-overview h3 {
     font-family: var(--font-serif);
     font-size: 1.5rem;
     color: var(--color-forest-green);
     margin-bottom: var(--space-lg);
 }
 
-.description-content h4 {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    color: var(--color-forest-green);
-    margin: var(--space-xl) 0 var(--space-md) 0;
+.project-images {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
 }
 
-.project-deliverables {
-    list-style: none;
-    padding-left: 0;
+.project-images .project-image {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-light-gray);
+    transition: opacity 0.2s ease;
 }
 
-.project-deliverables li {
-    margin-bottom: var(--space-sm);
-    padding-left: var(--space-lg);
-    position: relative;
-    color: var(--color-warm-charcoal);
+.project-images .project-image:hover {
+    opacity: 0.9;
 }
 
-.project-deliverables li::before {
-    content: "—";
-    position: absolute;
-    left: 0;
-    color: var(--color-sage-green);
-}
+/* Simplified project details */
 
 .project-details {
     background: var(--color-warm-white);
@@ -594,116 +558,7 @@ p {
     font-weight: 500;
 }
 
-/* ===================================
-   CONTACT SECTION
-   ================================== */
 
-.contact {
-    padding: var(--space-4xl) 0;
-    background: var(--color-warm-white);
-    border-top: 1px solid var(--color-light-gray);
-}
-
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-4xl);
-    margin-top: var(--space-2xl);
-    align-items: start;
-}
-
-.contact-info {
-    padding-right: var(--space-xl);
-}
-
-.contact-text {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--color-warm-charcoal);
-    margin-bottom: 0;
-}
-
-.contact-form {
-    background: var(--color-ivory);
-    padding: var(--space-2xl);
-    border: 1px solid var(--color-light-gray);
-}
-
-.form-group {
-    margin-bottom: var(--space-xl);
-}
-
-.form-group label {
-    display: block;
-    font-size: 0.9rem;
-    color: var(--color-forest-green);
-    margin-bottom: var(--space-xs);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: var(--space-md);
-    border: 1px solid var(--color-light-gray);
-    background: var(--color-ivory);
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    color: var(--color-warm-charcoal);
-    transition: border-color 0.2s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--color-sage-green);
-}
-
-.form-group textarea {
-    min-height: 120px;
-    resize: vertical;
-    line-height: 1.6;
-}
-
-.submit-button {
-    background: var(--color-forest-green);
-    color: var(--color-ivory);
-    border: none;
-    padding: var(--space-md) var(--space-xl);
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.submit-button:hover {
-    background: var(--color-sage-green);
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-xl);
-    margin-top: var(--space-3xl);
-    padding-top: var(--space-2xl);
-    border-top: 1px solid var(--color-light-gray);
-}
-
-.social-links a {
-    color: var(--color-warm-gray);
-    font-size: 1.25rem;
-    transition: color 0.2s ease;
-    padding: var(--space-sm);
-}
-
-.social-links a:hover {
-    color: var(--color-forest-green);
-}
 
 /* ===================================
    FOOTER
@@ -850,7 +705,7 @@ p {
         margin-top: var(--space-xl);
     }
 
-    .project-description {
+    .project-content {
         grid-template-columns: 1fr;
         gap: var(--space-2xl);
     }
