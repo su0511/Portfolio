@@ -26,6 +26,27 @@ html {
     --color-light-gray: #E8E6E1;
     --color-accent-gold: #B8860B;
 
+    /* Theme Variables */
+    --bg-primary: var(--color-ivory);
+    --bg-secondary: var(--color-warm-white);
+    --text-primary: var(--color-warm-charcoal);
+    --text-secondary: var(--color-warm-gray);
+    --accent-primary: var(--color-forest-green);
+    --accent-secondary: var(--color-sage-green);
+    --border-color: var(--color-light-gray);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --bg-primary: #1C1C1C;
+    --bg-secondary: #2A2A2A;
+    --text-primary: #F2F2E9;
+    --text-secondary: #B8B8B8;
+    --accent-primary: #8FA68E;
+    --accent-secondary: #6B8A6B;
+    --border-color: #404040;
+}
+
     /* Typography Scale */
     --font-serif: 'EB Garamond', Georgia, serif;
     --font-sans: 'Avenir', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -50,10 +71,11 @@ body {
     font-family: var(--font-sans);
     font-size: 1rem;
     line-height: 1.6;
-    color: var(--color-warm-charcoal);
-    background-color: var(--color-ivory);
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
     overflow-x: hidden;
     font-weight: 400;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Container System */
@@ -164,6 +186,12 @@ p {
     align-items: center;
 }
 
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
 .navbar.scrolled {
     padding: var(--space-md) 0;
     box-shadow: 0 2px 8px rgba(45, 74, 58, 0.08);
@@ -173,9 +201,31 @@ p {
     font-family: var(--font-serif);
     font-size: 1.5rem;
     font-weight: 500;
-    color: var(--color-forest-green);
+    color: var(--accent-primary);
     text-decoration: none;
     letter-spacing: -0.01em;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-xs);
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    background-color: var(--border-color);
+}
+
+.theme-icon {
+    font-size: 1rem;
+    color: var(--text-primary);
+    transition: color 0.2s ease;
 }
 
 .nav-links {
@@ -243,7 +293,7 @@ p {
 
 .work {
     padding: calc(80px + var(--space-4xl)) 0 var(--space-4xl) 0;
-    background: var(--color-ivory);
+    background: var(--bg-primary);
     min-height: 100vh;
 }
 
@@ -261,8 +311,8 @@ p {
     display: block;
     text-decoration: none;
     color: inherit;
-    background: var(--color-warm-white);
-    border: 1px solid var(--color-light-gray);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
     transition: all 0.2s ease;
     cursor: pointer;
     width: 100%;
@@ -278,9 +328,9 @@ p {
 
 .portfolio-image {
     width: 100%;
-    aspect-ratio: 3/2;
+    aspect-ratio: 4/3;
     overflow: hidden;
-    background: var(--color-light-gray);
+    background: var(--border-color);
 }
 
 .portfolio-image img {
@@ -310,7 +360,7 @@ p {
 
 .about-page {
     padding: calc(80px + var(--space-4xl)) 0 var(--space-4xl) 0;
-    background: var(--color-ivory);
+    background: var(--bg-primary);
     min-height: 100vh;
 }
 
@@ -420,7 +470,7 @@ p {
 
 .project-detail {
     padding: calc(80px + var(--space-2xl)) 0 var(--space-4xl) 0;
-    background: var(--color-ivory);
+    background: var(--bg-primary);
     min-height: 100vh;
 }
 
@@ -583,22 +633,21 @@ p {
 
 .archive {
     padding: calc(80px + var(--space-4xl)) 0 var(--space-4xl) 0;
-    background: var(--color-ivory);
+    background: var(--bg-primary);
     min-height: 100vh;
 }
 
 .archive-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-2xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
     margin-top: var(--space-2xl);
 }
 
 .archive-item {
-    background: var(--color-warm-white);
-    border: 1px solid var(--color-light-gray);
-    transition: all 0.2s ease;
     cursor: pointer;
+    transition: all 0.2s ease;
+    overflow: hidden;
 }
 
 .archive-item.large {
@@ -606,53 +655,73 @@ p {
 }
 
 .archive-item:hover {
-    border-color: var(--color-sage-green);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(45, 74, 58, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-.archive-image {
-    width: 100%;
-    aspect-ratio: 16/9;
-    overflow: hidden;
-    background: var(--color-light-gray);
-}
-
-.archive-image img {
+.archive-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: opacity 0.2s ease;
+    aspect-ratio: 4/3;
 }
 
-.archive-item:hover .archive-image img {
+.archive-item:hover img {
     opacity: 0.9;
 }
 
-.archive-content {
-    padding: var(--space-xl);
-    border-top: 1px solid var(--color-light-gray);
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(4px);
 }
 
-.archive-title {
-    font-family: var(--font-serif);
-    font-size: 1.125rem;
-    font-weight: 500;
-    color: var(--color-forest-green);
-    margin-bottom: var(--space-sm);
+.lightbox-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2xl);
 }
 
-.archive-description {
-    font-size: 0.95rem;
-    color: var(--color-warm-gray);
-    line-height: 1.5;
-    margin-bottom: var(--space-sm);
+.lightbox-close {
+    position: absolute;
+    top: var(--space-xl);
+    right: var(--space-xl);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.2s ease;
 }
 
-.archive-year {
-    font-size: 0.85rem;
-    color: var(--color-warm-charcoal);
-    font-weight: 500;
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#lightbox-image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 4px;
 }
 
 /* ===================================

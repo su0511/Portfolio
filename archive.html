@@ -14,7 +14,12 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <div class="logo">Your Name</div>
+            <div class="nav-left">
+                <div class="logo">Your Name</div>
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon theme-icon" id="theme-icon"></i>
+                </button>
+            </div>
             <ul class="nav-links" role="navigation" aria-label="Main navigation">
                 <li><a href="index.html">WORK</a></li>
                 <li><a href="about.html">ABOUT</a></li>
@@ -32,80 +37,48 @@
     <section class="archive">
         <div class="container">
             <div class="archive-grid">
-                <!-- Photography Project 1 -->
-                <div class="archive-item large">
-                    <div class="archive-image">
-                        <img src="assets/photo1.jpg" alt="Photography Project 1">
-                    </div>
-                    <div class="archive-content">
-                        <h3 class="archive-title">Urban Landscapes</h3>
-                        <p class="archive-description">Photography series exploring city architecture</p>
-                        <span class="archive-year">2024</span>
-                    </div>
+                <!-- Archive Images -->
+                <div class="archive-item" data-lightbox="archive">
+                    <img src="assets/photo1.jpg" alt="Archive Image 1">
                 </div>
-
-                <!-- Experimental Design 1 -->
-                <div class="archive-item">
-                    <div class="archive-image">
-                        <img src="assets/experimental1.jpg" alt="Experimental Design 1">
-                    </div>
-                    <div class="archive-content">
-                        <h3 class="archive-title">Digital Collages</h3>
-                        <p class="archive-description">Mixed media digital experiments</p>
-                        <span class="archive-year">2024</span>
-                    </div>
+                <div class="archive-item large" data-lightbox="archive">
+                    <img src="assets/experimental1.jpg" alt="Archive Image 2">
                 </div>
-
-                <!-- Photography Project 2 -->
-                <div class="archive-item">
-                    <div class="archive-image">
-                        <img src="assets/photo2.jpg" alt="Photography Project 2">
-                    </div>
-                    <div class="archive-content">
-                        <h3 class="archive-title">Portrait Series</h3>
-                        <p class="archive-description">Contemporary portrait photography</p>
-                        <span class="archive-year">2023</span>
-                    </div>
+                <div class="archive-item" data-lightbox="archive">
+                    <img src="assets/photo2.jpg" alt="Archive Image 3">
                 </div>
-
-                <!-- Experimental Design 2 -->
-                <div class="archive-item large">
-                    <div class="archive-image">
-                        <img src="assets/experimental2.jpg" alt="Experimental Design 2">
-                    </div>
-                    <div class="archive-content">
-                        <h3 class="archive-title">Motion Graphics</h3>
-                        <p class="archive-description">Animated visual experiments</p>
-                        <span class="archive-year">2023</span>
-                    </div>
+                <div class="archive-item" data-lightbox="archive">
+                    <img src="assets/experimental2.jpg" alt="Archive Image 4">
                 </div>
-
-                <!-- Photography Project 3 -->
-                <div class="archive-item">
-                    <div class="archive-image">
-                        <img src="assets/photo3.jpg" alt="Photography Project 3">
-                    </div>
-                    <div class="archive-content">
-                        <h3 class="archive-title">Nature Studies</h3>
-                        <p class="archive-description">Botanical photography collection</p>
-                        <span class="archive-year">2023</span>
-                    </div>
+                <div class="archive-item large" data-lightbox="archive">
+                    <img src="assets/photo3.jpg" alt="Archive Image 5">
                 </div>
-
-                <!-- Experimental Design 3 -->
-                <div class="archive-item">
-                    <div class="archive-image">
-                        <img src="assets/experimental3.jpg" alt="Experimental Design 3">
-                    </div>
-                    <div class="archive-content">
-                        <h3 class="archive-title">3D Explorations</h3>
-                        <p class="archive-description">Three-dimensional design studies</p>
-                        <span class="archive-year">2022</span>
-                    </div>
+                <div class="archive-item" data-lightbox="archive">
+                    <img src="assets/experimental3.jpg" alt="Archive Image 6">
+                </div>
+                <div class="archive-item" data-lightbox="archive">
+                    <img src="assets/photo1.jpg" alt="Archive Image 7">
+                </div>
+                <div class="archive-item" data-lightbox="archive">
+                    <img src="assets/experimental1.jpg" alt="Archive Image 8">
+                </div>
+                <div class="archive-item large" data-lightbox="archive">
+                    <img src="assets/photo2.jpg" alt="Archive Image 9">
+                </div>
+                <div class="archive-item" data-lightbox="archive">
+                    <img src="assets/experimental2.jpg" alt="Archive Image 10">
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightbox-image" src="" alt="">
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
