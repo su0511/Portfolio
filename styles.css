@@ -247,11 +247,10 @@ p {
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: var(--space-2xl);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
     margin-top: var(--space-2xl);
-    max-width: 1400px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -264,6 +263,9 @@ p {
     border: 1px solid var(--color-light-gray);
     transition: all 0.2s ease;
     cursor: pointer;
+    width: 100%;
+    min-width: 0; /* Prevents flex/grid items from overflowing */
+    box-sizing: border-box;
 }
 
 .portfolio-item:hover {
@@ -933,8 +935,6 @@ p {
     }
 
     /* Layout Adjustments */
-    }
-
     .about-content {
         grid-template-columns: 1fr;
         gap: var(--space-2xl);
@@ -942,7 +942,8 @@ p {
 
     .portfolio-grid {
         grid-template-columns: 1fr;
-        gap: var(--space-2xl);
+        gap: 1.5rem;
+        max-width: 100%;
     }
 
     .contact-content {
@@ -970,11 +971,13 @@ p {
         padding: 0 var(--space-md);
     }
 
+    .work {
         padding: var(--space-2xl) 0;
     }
 
     .portfolio-grid {
-        gap: var(--space-xl);
+        gap: 1rem;
+        margin-top: 1.5rem;
     }
 
     .portfolio-content {
@@ -995,11 +998,23 @@ p {
     }
 }
 
+/* Medium screens - ensure two columns */
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 /* Tablet Landscape */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-2xl);
+        gap: 1.5rem;
+        max-width: 100%;
     }
 
     .about-content {
@@ -1015,6 +1030,33 @@ p {
 @media screen and (max-width: 640px) {
     .section-title {
         font-size: clamp(1.75rem, 5vw, 2rem);
+    }
+}
+
+/* Safari and WebKit specific optimizations */
+@supports (-webkit-appearance: none) {
+    .portfolio-grid {
+        display: -webkit-grid;
+        display: grid;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .portfolio-item {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        min-width: 0;
+    }
+
+    /* Ensure two columns on desktop for Safari */
+    @media screen and (min-width: 1025px) {
+        .portfolio-grid {
+            -webkit-grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr);
+            -webkit-grid-gap: 2rem;
+            grid-gap: 2rem;
+        }
     }
 }
 
@@ -1071,7 +1113,7 @@ p {
 .form-group input:focus,
 .form-group textarea:focus,
 .submit-button:focus,
-.social-links a:focus,
+.social-links a:focus {
     outline: 2px solid var(--color-forest-green);
     outline-offset: 2px;
 }
@@ -1115,8 +1157,6 @@ p {
         line-height: 1.4;
     }
 
-    }
-
     .section-title {
         font-size: 18pt;
         margin-bottom: 1rem;
@@ -1124,7 +1164,7 @@ p {
 
     .portfolio-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1rem;
     }
 
     .portfolio-image {
