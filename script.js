@@ -1,5 +1,5 @@
 /**
- * Classic Editorial Portfolio - JavaScript
+ * Classic Structured Portfolio - JavaScript
  * Minimal, purposeful interactions for a timeless design
  */
 
@@ -75,11 +75,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Smooth scrolling for navigation links
+    // Smooth scrolling for navigation links (only for same-page anchors)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+
+            // Check if it's a cross-page link (contains .html)
+            if (href.includes('.html')) {
+                return; // Let the browser handle the navigation
+            }
+
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(href);
             if (target) {
                 const offsetTop = target.offsetTop - 100; // Account for fixed navbar
                 window.scrollTo({
