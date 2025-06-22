@@ -216,11 +216,13 @@ p {
 }
 
 .nav-links a.active {
-    color: var(--color-warm-charcoal);
+    color: var(--color-forest-green);
 }
 
 .nav-links a.active::after {
     width: 100%;
+    height: 1px;
+    background: var(--color-forest-green);
 }
 
 /* ===================================
@@ -248,9 +250,9 @@ p {
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin-top: var(--space-2xl);
-    max-width: 1200px;
+    gap: 3rem;
+    margin-top: var(--space-4xl);
+    max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -276,7 +278,7 @@ p {
 
 .portfolio-image {
     width: 100%;
-    aspect-ratio: 4/3;
+    aspect-ratio: 3/2;
     overflow: hidden;
     background: var(--color-light-gray);
 }
@@ -293,7 +295,7 @@ p {
 }
 
 .portfolio-content {
-    padding: var(--space-xl);
+    padding: var(--space-2xl);
     border-top: 1px solid var(--color-light-gray);
 }
 
@@ -318,6 +320,19 @@ p {
     gap: var(--space-4xl);
     align-items: start;
     margin-top: var(--space-2xl);
+}
+
+.about-content-simple {
+    max-width: 800px;
+    margin: var(--space-4xl) auto 0;
+    text-align: center;
+}
+
+.about-paragraph {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-warm-charcoal);
+    margin: 0;
 }
 
 .about-text .section-header {
@@ -445,10 +460,10 @@ p {
     margin-bottom: 0;
 }
 
-/* New Project Content Layout - Golden Ratio */
+/* New Project Content Layout - 1/4 text, 3/4 images */
 .project-content {
     display: grid;
-    grid-template-columns: 1.618fr 1fr; /* Golden ratio */
+    grid-template-columns: 1fr 3fr; /* 1/4 text, 3/4 images */
     gap: var(--space-4xl);
     margin-bottom: var(--space-4xl);
 }
@@ -559,6 +574,84 @@ p {
 
 .nav-title {
     font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* ===================================
+   ARCHIVE PAGE
+   ================================== */
+
+.archive {
+    padding: calc(80px + var(--space-4xl)) 0 var(--space-4xl) 0;
+    background: var(--color-ivory);
+    min-height: 100vh;
+}
+
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-2xl);
+    margin-top: var(--space-2xl);
+}
+
+.archive-item {
+    background: var(--color-warm-white);
+    border: 1px solid var(--color-light-gray);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.archive-item.large {
+    grid-column: span 2;
+}
+
+.archive-item:hover {
+    border-color: var(--color-sage-green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 74, 58, 0.1);
+}
+
+.archive-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: var(--color-light-gray);
+}
+
+.archive-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.2s ease;
+}
+
+.archive-item:hover .archive-image img {
+    opacity: 0.9;
+}
+
+.archive-content {
+    padding: var(--space-xl);
+    border-top: 1px solid var(--color-light-gray);
+}
+
+.archive-title {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--color-forest-green);
+    margin-bottom: var(--space-sm);
+}
+
+.archive-description {
+    font-size: 0.95rem;
+    color: var(--color-warm-gray);
+    line-height: 1.5;
+    margin-bottom: var(--space-sm);
+}
+
+.archive-year {
+    font-size: 0.85rem;
+    color: var(--color-warm-charcoal);
     font-weight: 500;
 }
 
@@ -1030,6 +1123,38 @@ p {
 @media screen and (max-width: 640px) {
     .section-title {
         font-size: clamp(1.75rem, 5vw, 2rem);
+    }
+
+    .project-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+        grid-template-areas:
+            "images"
+            "text";
+    }
+
+    .project-text {
+        grid-area: text;
+        order: 2;
+    }
+
+    .project-images {
+        grid-area: images;
+        order: 1;
+    }
+
+    .archive-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+
+    .archive-item.large {
+        grid-column: span 1;
+    }
+
+    .about-content-simple {
+        margin-top: var(--space-2xl);
+        text-align: left;
     }
 }
 
