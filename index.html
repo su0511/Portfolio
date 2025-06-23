@@ -6,7 +6,7 @@
     <title>Graphic Design Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Avenir:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -14,12 +14,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <div class="nav-left">
-                <div class="logo">Your Name</div>
-                <button class="theme-toggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon theme-icon" id="theme-icon"></i>
-                </button>
-            </div>
+            <div class="logo">Your Name</div>
             <ul class="nav-links" role="navigation" aria-label="Main navigation">
                 <li><a href="#work" class="active">WORK</a></li>
                 <li><a href="about.html">ABOUT</a></li>
@@ -35,6 +30,9 @@
     <!-- Work Section -->
     <section id="work" class="work">
         <div class="container">
+            <header class="section-header">
+                <h1 class="section-title">Selected Work</h1>
+            </header>
             <div class="portfolio-grid">
                 <!-- Brand Identity -->
                 <a href="project1.html" class="portfolio-item">
@@ -109,19 +107,31 @@
                 </a>
 
                 <!-- Web Design -->
-                <a href="project1.html" class="portfolio-item">
+                <a href="project7.html" class="portfolio-item">
                     <div class="portfolio-image">
                         <img src="assets/web1.jpg" alt="Web Design Project">
                     </div>
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Web Design</h3>
-                        <p class="portfolio-description">Digital Interface Design</p>
+                        <p class="portfolio-description">Responsive Website Design</p>
                         <span class="portfolio-year">2024</span>
                     </div>
                 </a>
 
+                <!-- Motion Graphics -->
+                <a href="project8.html" class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="assets/motion1.jpg" alt="Motion Graphics Project">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Motion Graphics</h3>
+                        <p class="portfolio-description">Animated Visual Identity</p>
+                        <span class="portfolio-year">2023</span>
+                    </div>
+                </a>
+
                 <!-- Editorial Design -->
-                <a href="project2.html" class="portfolio-item">
+                <a href="project9.html" class="portfolio-item">
                     <div class="portfolio-image">
                         <img src="assets/editorial1.jpg" alt="Editorial Design Project">
                     </div>
@@ -132,26 +142,14 @@
                     </div>
                 </a>
 
-                <!-- Motion Graphics -->
-                <a href="project3.html" class="portfolio-item">
+                <!-- Environmental Graphics -->
+                <a href="project10.html" class="portfolio-item">
                     <div class="portfolio-image">
-                        <img src="assets/motion1.jpg" alt="Motion Graphics Project">
+                        <img src="assets/environmental1.jpg" alt="Environmental Graphics Project">
                     </div>
                     <div class="portfolio-content">
-                        <h3 class="portfolio-title">Motion Graphics</h3>
-                        <p class="portfolio-description">Animation & Video Design</p>
-                        <span class="portfolio-year">2023</span>
-                    </div>
-                </a>
-
-                <!-- Exhibition Design -->
-                <a href="project4.html" class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="assets/exhibition1.jpg" alt="Exhibition Design Project">
-                    </div>
-                    <div class="portfolio-content">
-                        <h3 class="portfolio-title">Exhibition Design</h3>
-                        <p class="portfolio-description">Spatial & Environmental Graphics</p>
+                        <h3 class="portfolio-title">Environmental Graphics</h3>
+                        <p class="portfolio-description">Wayfinding & Signage Design</p>
                         <span class="portfolio-year">2022</span>
                     </div>
                 </a>
@@ -165,7 +163,6 @@
             <p class="footer-text">&copy; 2024 Your Name. All rights reserved.</p>
         </div>
     </footer>
-    <!-- Force GitHub Pages update -->
 
     <script src="script.js"></script>
 </body>
