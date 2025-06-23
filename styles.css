@@ -41,7 +41,7 @@ html {
     --space-4xl: 6rem;     /* 96px */
 
     /* Grid System */
-    --container-max-width: 1200px;
+    --container-max-width: 1400px;
     --grid-gutter: 2rem;
     --content-max-width: 65ch;
 }
@@ -242,7 +242,7 @@ p {
    ================================== */
 
 .work {
-    padding: calc(80px + var(--space-4xl)) 0 var(--space-4xl) 0;
+    padding: calc(80px + var(--space-2xl)) 0 var(--space-4xl) 0;
     background: var(--color-ivory);
     min-height: 100vh;
 }
@@ -251,15 +251,14 @@ p {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 6rem;
-    margin-top: var(--space-4xl);
-    max-width: 2000px;
+    margin-top: 0;
+    max-width: 2400px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .portfolio-item {
-    display: flex;
-    flex-direction: column;
+    display: block;
     text-decoration: none;
     color: inherit;
     background: var(--color-ivory);
@@ -280,18 +279,17 @@ p {
 }
 
 .portfolio-item:hover .portfolio-content {
-    opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
 }
 
 .portfolio-image {
     width: 100%;
+    height: 100%;
     aspect-ratio: 4/3;
     overflow: hidden;
     background: var(--color-light-gray);
     position: relative;
-    flex-shrink: 0;
 }
 
 .portfolio-image img {
@@ -306,16 +304,17 @@ p {
 }
 
 .portfolio-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
-    padding: var(--space-2xl);
+    padding: var(--space-lg) var(--space-xl);
     background: var(--color-ivory);
-    border-top: 1px solid var(--color-light-gray);
     color: var(--color-warm-charcoal);
-    opacity: 0;
     transform: translateY(100%);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
-    position: relative;
     z-index: 2;
 }
 
@@ -327,24 +326,24 @@ p {
 .portfolio-title {
     font-family: var(--font-serif);
     color: var(--color-forest-green);
-    margin-bottom: var(--space-sm);
-    font-size: 1.25rem;
+    margin-bottom: var(--space-xs);
+    font-size: 1.125rem;
     font-weight: 500;
-    line-height: 1.3;
+    line-height: 1.2;
 }
 
 .portfolio-description {
     font-family: var(--font-sans);
     color: var(--color-warm-gray);
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: var(--space-sm);
+    font-size: 0.875rem;
+    line-height: 1.4;
+    margin-bottom: var(--space-xs);
 }
 
 .portfolio-year {
     font-family: var(--font-sans);
     color: var(--color-sage-green);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -1196,21 +1195,19 @@ p {
     }
 
     .portfolio-item:hover .portfolio-content {
-        opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(100%);
     }
 
     /* Always show content on mobile devices */
     .portfolio-content {
         position: static;
-        opacity: 1;
         transform: none;
         background: var(--color-ivory);
         color: var(--color-warm-charcoal);
         border-top: 1px solid var(--color-light-gray);
         pointer-events: auto;
         margin: 0;
-        padding: var(--space-xl);
+        padding: var(--space-lg) var(--space-xl);
     }
 
     .portfolio-title {
@@ -1218,21 +1215,22 @@ p {
         color: var(--color-forest-green);
         font-size: 1.125rem;
         font-weight: 500;
-        line-height: 1.3;
+        line-height: 1.2;
+        margin-bottom: var(--space-xs);
     }
 
     .portfolio-description {
         font-family: var(--font-sans);
         color: var(--color-warm-gray);
-        font-size: 0.9rem;
-        line-height: 1.5;
-        margin-bottom: var(--space-sm);
+        font-size: 0.875rem;
+        line-height: 1.4;
+        margin-bottom: var(--space-xs);
     }
 
     .portfolio-year {
         font-family: var(--font-sans);
         color: var(--color-sage-green);
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.05em;
