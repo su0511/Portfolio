@@ -32,10 +32,10 @@
     <section class="archive">
         <div class="container">
             <div class="archive-grid">
-                <!-- Photography Project 1 -->
-                <div class="archive-item large">
+                <!-- First Row: 3 images -->
+                <div class="archive-item row-1">
                     <div class="archive-image">
-                        <img src="assets/photo1.jpg" alt="Photography Project 1">
+                        <img src="assets/photo1.jpg" alt="Urban Landscapes" data-lightbox="true">
                     </div>
                     <div class="archive-content">
                         <h3 class="archive-title">Urban Landscapes</h3>
@@ -44,10 +44,9 @@
                     </div>
                 </div>
 
-                <!-- Experimental Design 1 -->
-                <div class="archive-item">
+                <div class="archive-item row-1">
                     <div class="archive-image">
-                        <img src="assets/experimental1.jpg" alt="Experimental Design 1">
+                        <img src="assets/experimental1.jpg" alt="Digital Collages" data-lightbox="true">
                     </div>
                     <div class="archive-content">
                         <h3 class="archive-title">Digital Collages</h3>
@@ -56,10 +55,9 @@
                     </div>
                 </div>
 
-                <!-- Photography Project 2 -->
-                <div class="archive-item">
+                <div class="archive-item row-1">
                     <div class="archive-image">
-                        <img src="assets/photo2.jpg" alt="Photography Project 2">
+                        <img src="assets/photo2.jpg" alt="Portrait Series" data-lightbox="true">
                     </div>
                     <div class="archive-content">
                         <h3 class="archive-title">Portrait Series</h3>
@@ -68,10 +66,10 @@
                     </div>
                 </div>
 
-                <!-- Experimental Design 2 -->
-                <div class="archive-item large">
+                <!-- Second Row: 2 images -->
+                <div class="archive-item row-2">
                     <div class="archive-image">
-                        <img src="assets/experimental2.jpg" alt="Experimental Design 2">
+                        <img src="assets/experimental2.jpg" alt="Motion Graphics" data-lightbox="true">
                     </div>
                     <div class="archive-content">
                         <h3 class="archive-title">Motion Graphics</h3>
@@ -80,10 +78,9 @@
                     </div>
                 </div>
 
-                <!-- Photography Project 3 -->
-                <div class="archive-item">
+                <div class="archive-item row-2">
                     <div class="archive-image">
-                        <img src="assets/photo3.jpg" alt="Photography Project 3">
+                        <img src="assets/photo3.jpg" alt="Nature Studies" data-lightbox="true">
                     </div>
                     <div class="archive-content">
                         <h3 class="archive-title">Nature Studies</h3>
@@ -92,10 +89,10 @@
                     </div>
                 </div>
 
-                <!-- Experimental Design 3 -->
-                <div class="archive-item">
+                <!-- Third Row: 3 images -->
+                <div class="archive-item row-3">
                     <div class="archive-image">
-                        <img src="assets/experimental3.jpg" alt="Experimental Design 3">
+                        <img src="assets/experimental3.jpg" alt="3D Explorations" data-lightbox="true">
                     </div>
                     <div class="archive-content">
                         <h3 class="archive-title">3D Explorations</h3>
@@ -103,9 +100,39 @@
                         <span class="archive-year">2022</span>
                     </div>
                 </div>
+
+                <div class="archive-item row-3">
+                    <div class="archive-image">
+                        <img src="assets/photo4.jpg" alt="Street Photography" data-lightbox="true">
+                    </div>
+                    <div class="archive-content">
+                        <h3 class="archive-title">Street Photography</h3>
+                        <p class="archive-description">Candid moments in urban environments</p>
+                        <span class="archive-year">2022</span>
+                    </div>
+                </div>
+
+                <div class="archive-item row-3">
+                    <div class="archive-image">
+                        <img src="assets/experimental4.jpg" alt="Typography Studies" data-lightbox="true">
+                    </div>
+                    <div class="archive-content">
+                        <h3 class="archive-title">Typography Studies</h3>
+                        <p class="archive-description">Experimental type design explorations</p>
+                        <span class="archive-year">2021</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightbox-image" src="" alt="">
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

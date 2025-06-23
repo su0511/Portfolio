@@ -117,83 +117,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Theme Toggle Functionality
-    const themeToggle = document.querySelector('.theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-
-    // Check for saved theme preference or default to 'light'
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', currentTheme);
-
-    // Update icon based on current theme
-    if (currentTheme === 'dark') {
-        themeIcon.className = 'fas fa-sun theme-icon';
-    } else {
-        themeIcon.className = 'fas fa-moon theme-icon';
-    }
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', function() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-
-            // Update icon
-            if (newTheme === 'dark') {
-                themeIcon.className = 'fas fa-sun theme-icon';
-            } else {
-                themeIcon.className = 'fas fa-moon theme-icon';
-            }
-        });
-    }
-
-    // Lightbox Functionality
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightbox-image');
-    const lightboxClose = document.querySelector('.lightbox-close');
-    const archiveItems = document.querySelectorAll('.archive-item[data-lightbox]');
-
-    // Open lightbox
-    archiveItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const img = this.querySelector('img');
-            if (img) {
-                lightboxImage.src = img.src;
-                lightboxImage.alt = img.alt;
-                lightbox.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
-        });
-    });
-
-    // Close lightbox
-    function closeLightbox() {
-        lightbox.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-
-    if (lightboxClose) {
-        lightboxClose.addEventListener('click', closeLightbox);
-    }
-
-    // Close lightbox on background click
-    if (lightbox) {
-        lightbox.addEventListener('click', function(e) {
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
-        });
-    }
-
-    // Close lightbox on Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && lightbox && lightbox.style.display === 'block') {
-            closeLightbox();
-        }
-    });
-
     // Form enhancement
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
@@ -218,4 +141,57 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 1000);
         });
     }
+
+    // Lightbox functionality for archive page
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const archiveImages = document.querySelectorAll('[data-lightbox="true"]');
+
+    // Open lightbox when clicking on archive images
+    archiveImages.forEach(img => {
+        img.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            lightboxImage.src = this.src;
+            lightboxImage.alt = this.alt;
+            lightbox.style.display = 'block';
+
+            // Prevent body scroll when lightbox is open
+            document.body.style.overflow = 'hidden';
+
+            // Focus management for accessibility
+            lightboxClose.focus();
+        });
+    });
+
+    // Close lightbox function
+    function closeLightbox() {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        lightboxImage.src = '';
+        lightboxImage.alt = '';
+    }
+
+    // Close lightbox when clicking the close button
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', closeLightbox);
+    }
+
+    // Close lightbox when clicking outside the image
+    if (lightbox) {
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+    }
+
+    // Close lightbox with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightbox && lightbox.style.display === 'block') {
+            closeLightbox();
+        }
+    });
 });
