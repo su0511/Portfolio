@@ -581,6 +581,7 @@ p {
 .project-navigation {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-top: var(--space-3xl);
     border-top: 1px solid var(--color-light-gray);
 }
@@ -616,6 +617,23 @@ p {
 .nav-title {
     font-size: 1.1rem;
     font-weight: 500;
+}
+
+.nav-project.back-to-top {
+    text-align: center;
+    flex: 0 0 auto;
+}
+
+.nav-project.back-to-top .nav-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    font-family: var(--font-sans);
+}
+
+.nav-project.back-to-top .nav-title {
+    display: none;
 }
 
 /* ===================================
@@ -1306,6 +1324,18 @@ p {
     .about-content-simple {
         margin-top: var(--space-2xl);
         text-align: left;
+    }
+
+    .project-navigation {
+        flex-direction: column;
+        gap: var(--space-lg);
+        align-items: stretch;
+    }
+
+    .nav-project.prev,
+    .nav-project.next,
+    .nav-project.back-to-top {
+        text-align: center;
     }
 }
 
