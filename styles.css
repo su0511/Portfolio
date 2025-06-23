@@ -636,7 +636,7 @@ p {
 .archive-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 4rem;
+    gap: 3rem;
     margin-top: 0;
     max-width: 2400px;
     margin-left: auto;
