@@ -1552,7 +1552,6 @@ p {
     z-index: 99999;
     display: block !important;
     opacity: 1;
-    mix-blend-mode: exclusion;
 }
 
 /* 光标点 */
