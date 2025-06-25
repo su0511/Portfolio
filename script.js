@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 自定义光标功能
     const cursor = document.querySelector('.custom-cursor');
     const cursorDot = document.querySelector('.cursor-dot');
-    
+
     if (cursor && cursorDot) {
         // 光标跟随鼠标移动
         document.addEventListener('mousemove', function(e) {
