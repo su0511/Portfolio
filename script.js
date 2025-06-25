@@ -4,6 +4,43 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+    // 自定义光标功能
+    const cursor = document.querySelector('.custom-cursor');
+    const cursorDot = document.querySelector('.cursor-dot');
+    
+    if (cursor && cursorDot) {
+        // 光标跟随鼠标移动
+        document.addEventListener('mousemove', function(e) {
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
+
+        // 鼠标悬停在可交互元素上的效果
+        const interactiveElements = document.querySelectorAll(
+            'a, button, .portfolio-item, .archive-item, .burger, input, textarea, [role="button"]'
+        );
+
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                cursor.classList.add('hover');
+            });
+
+            element.addEventListener('mouseleave', function() {
+                cursor.classList.remove('hover');
+            });
+        });
+
+        // 鼠标离开页面时隐藏光标
+        document.addEventListener('mouseleave', function() {
+            cursor.style.opacity = '0';
+        });
+
+        document.addEventListener('mouseenter', function() {
+            cursor.style.opacity = '1';
+        });
+    }
+
+    // 其他功能代码
     const burger = document.querySelector('.burger');
     const navLinks = document.querySelector('.nav-links');
     const navLinksItems = document.querySelectorAll('.nav-links li');
@@ -194,5 +231,4 @@ document.addEventListener('DOMContentLoaded', function() {
             closeLightbox();
         }
     });
-
 });
