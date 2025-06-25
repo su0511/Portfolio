@@ -1039,7 +1039,7 @@ p {
 .footer {
     color: var(--color-warm-charcoal);
     padding: var(--space-lg) 0;
-    text-align: center;
+    text-align: left;
 }
 
 .footer-text {
