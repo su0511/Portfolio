@@ -1548,7 +1548,8 @@ p {
     width: 100vw;
     height: 100vh;
     pointer-events: none;
-    z-index: 9999;
+    z-index: 99999;
+    display: block;
     /* 暂时移除 mix-blend-mode，先让光标正常工作 */
 }
 
@@ -1562,6 +1563,7 @@ p {
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transition: width 0.2s ease, height 0.2s ease;
+     display: block;
 }
 
 /* 可交互元素的光标变化 */
