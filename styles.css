@@ -1040,7 +1040,6 @@ p {
     color: var(--color-warm-charcoal);
     padding: var(--space-lg) 0;
     text-align: center;
-    border-top: 1px solid var(--color-light-gray);
 }
 
 .footer-text {
