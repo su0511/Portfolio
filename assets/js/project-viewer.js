@@ -92,6 +92,10 @@ class ProjectViewer {
     setupNavigation() {
         if (this.mediaList.length <= 1) return;
 
+        // Find the project-text container
+        const projectText = document.querySelector('.project-text');
+        if (!projectText) return;
+
         // Create navigation container
         const navContainer = document.createElement('div');
         navContainer.className = 'media-nav-container';
@@ -111,7 +115,9 @@ class ProjectViewer {
 
         navContainer.appendChild(prevBtn);
         navContainer.appendChild(nextBtn);
-        this.projectMedia.appendChild(navContainer);
+
+        // Append to project-text instead of project-media
+        projectText.appendChild(navContainer);
     }
 
     setupLightbox() {

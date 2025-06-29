@@ -44,12 +44,13 @@
     cursor: zoom-in;
 }
 
-/* Navigation Arrows Container */
+/* Navigation Arrows Container - moved to text column */
 .media-nav-container {
     display: flex;
     justify-content: flex-end;
     gap: var(--space-xs);
-    margin-top: var(--space-md);
+    margin-top: auto;
+    padding-top: var(--space-md);
 }
 
 /* Navigation Arrows */
@@ -95,9 +96,10 @@
    PROJECT LAYOUT ALIGNMENT
    ================================== */
 
-/* Align project-media with first paragraph and project-details */
+/* Adjust project-content layout and spacing */
 .project-content {
     align-items: flex-start;
+    margin-bottom: var(--space-3xl) !important;
 }
 
 .project-text {
@@ -105,6 +107,7 @@
     flex-direction: column;
     justify-content: space-between;
     min-height: 100%;
+    position: relative;
 }
 
 .project-media {
@@ -120,11 +123,6 @@
 /* Move project text sections down */
 .project-overview {
     margin-top: var(--space-lg);
-}
-
-.project-details {
-    margin-top: 0;
-    padding: var(--space-lg) !important;
 }
 
 /* Adjust navbar padding to align with containers */
@@ -171,11 +169,7 @@
     min-height: 90vh !important;
 }
 
-/* Ensure navigation aligns with project-details bottom */
-.media-nav-container {
-    margin-top: auto;
-    align-self: flex-end;
-}
+
 
 /* ===================================
    LIGHTBOX

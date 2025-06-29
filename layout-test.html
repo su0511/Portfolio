@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Test - All Projects</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .test-item { border: 1px solid #ccc; padding: 10px; }
+        .test-item h3 { margin-top: 0; color: #333; }
+        .status { padding: 5px; border-radius: 3px; font-weight: bold; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>项目页面布局测试</h1>
+    <p>检查所有项目页面的结构是否与 project1.html 一致</p>
+    
+    <div class="test-grid" id="testResults">
+        <!-- 测试结果将在这里显示 -->
+    </div>
+
+    <script>
+        async function testProjectLayout(projectNum) {
+            try {
+                const response = await fetch(`project${projectNum}.html`);
+                const html = await response.text();
+                
+                // 检查关键结构
+                const hasProjectContent = html.includes('<div class="project-content">');
+                const hasProjectText = html.includes('<div class="project-text">');
+                const hasProjectOverview = html.includes('<div class="project-overview">');
+                const hasProjectMedia = html.includes('<main class="project-media"');
+                const hasCorrectClosing = html.includes('</div>\n\n                <!-- Project Media Viewer -->') || 
+                                         html.includes('</div>\n                \n                <!-- Project Media Viewer -->') ||
+                                         html.includes('</div>\n                <!-- Project Media Viewer -->');
+                
+                const isCorrect = hasProjectContent && hasProjectText && hasProjectOverview && hasProjectMedia;
+                
+                return {
+                    projectNum,
+                    isCorrect,
+                    details: {
+                        hasProjectContent,
+                        hasProjectText,
+                        hasProjectOverview,
+                        hasProjectMedia,
+                        hasCorrectClosing
+                    }
+                };
+            } catch (error) {
+                return {
+                    projectNum,
+                    isCorrect: false,
+                    error: error.message
+                };
+            }
+        }
+
+        async function runAllTests() {
+            const testResults = document.getElementById('testResults');
+            
+            for (let i = 1; i <= 10; i++) {
+                const result = await testProjectLayout(i);
+                
+                const testItem = document.createElement('div');
+                testItem.className = 'test-item';
+                
+                const status = result.isCorrect ? 'success' : 'error';
+                const statusText = result.isCorrect ? '✅ 正确' : '❌ 错误';
+                
+                let detailsHtml = '';
+                if (result.details) {
+                    detailsHtml = `
+                        <ul>
+                            <li>project-content: ${result.details.hasProjectContent ? '✅' : '❌'}</li>
+                            <li>project-text: ${result.details.hasProjectText ? '✅' : '❌'}</li>
+                            <li>project-overview: ${result.details.hasProjectOverview ? '✅' : '❌'}</li>
+                            <li>project-media: ${result.details.hasProjectMedia ? '✅' : '❌'}</li>
+                            <li>正确闭合: ${result.details.hasCorrectClosing ? '✅' : '❌'}</li>
+                        </ul>
+                    `;
+                }
+                
+                testItem.innerHTML = `
+                    <h3>Project ${i}</h3>
+                    <div class="status ${status}">${statusText}</div>
+                    ${detailsHtml}
+                    ${result.error ? `<p>错误: ${result.error}</p>` : ''}
+                `;
+                
+                testResults.appendChild(testItem);
+            }
+        }
+
+        // 运行测试
+        runAllTests();
+    </script>
+</body>
+</html>
