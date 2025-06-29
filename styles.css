@@ -28,6 +28,7 @@ html {
     --font-sans: 'Avenir', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
     /* Spacing Scale - Based on 24px baseline */
+    --space-xxs: 0.25rem;  /* 4px */
     --space-xs: 0.5rem;    /* 8px */
     --space-sm: 0.75rem;   /* 12px */
     --space-md: 1rem;      /* 16px */
@@ -93,9 +94,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .portfolio-title {
-    font-size: 1.25rem;
-    font-weight: 500;
+    font-family: var(--font-serif);
+    color: var(--color-forest-green);
     margin-bottom: var(--space-xs);
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.2;
+    padding: var(--space-xs) 0 0 var(--space-xs);
 }
 
 .skills-title {
@@ -127,18 +132,24 @@ p {
 }
 
 .portfolio-description {
-    font-size: 0.9rem;
+    font-family: var(--font-sans);
     color: var(--color-warm-gray);
-    line-height: 1.5;
-    margin-bottom: var(--space-sm);
+    font-size: 0.875rem;
+    line-height: 1.4;
+    margin-bottom: var(--space-xs);
+    padding: 0 0 0 var(--space-xs);
+    margin-top: -0.3rem;
 }
 
 .portfolio-year {
-    font-size: 0.8rem;
+    font-family: var(--font-sans);
     color: var(--color-sage-green);
+    font-size: 0.75rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    margin: 0;
+    padding: var(--space-xs) 0 0 var(--space-xs);
 }
 
 /* ===================================
@@ -308,7 +319,7 @@ p {
     left: 0;
     right: 0;
     width: 100%;
-    padding: var(--space-lg) var(--space-xl);
+    padding: var(--space-sm) var(--space-md);
     background: var(--color-ivory);
     color: var(--color-warm-charcoal);
     transform: translateY(100%);
@@ -320,33 +331,6 @@ p {
 .portfolio-content p {
     margin-bottom: var(--space-sm);
     max-width: none;
-}
-
-.portfolio-title {
-    font-family: var(--font-serif);
-    color: var(--color-forest-green);
-    margin-bottom: var(--space-xs);
-    font-size: 1.125rem;
-    font-weight: 500;
-    line-height: 1.2;
-}
-
-.portfolio-description {
-    font-family: var(--font-sans);
-    color: var(--color-warm-gray);
-    font-size: 0.875rem;
-    line-height: 1.4;
-    margin-bottom: var(--space-xs);
-}
-
-.portfolio-year {
-    font-family: var(--font-sans);
-    color: var(--color-sage-green);
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin: 0;
 }
 
 /* ===================================
@@ -503,6 +487,7 @@ p {
     font-weight: 500;
     color: var(--color-forest-green);
     margin-bottom: 0;
+    margin-top:-1rem;
 }
 
 /* New Project Content Layout - 1/4 text, 3/4 images */
@@ -516,14 +501,19 @@ p {
 .project-text {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3xl);
+    gap: var(--space-md);
 }
 
 .project-overview h3 {
     font-family: var(--font-serif);
     font-size: 1.5rem;
     color: var(--color-forest-green);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
+    margin-top:-2rem;
+}
+
+.project-overview p {
+    margin-bottom: var(--space-xs);
 }
 
 .project-images {
@@ -727,7 +717,8 @@ p {
     left: 0;
     right: 0;
     width: 100%;
-    padding: var(--space-lg) var(--space-xl);
+    padding-top: var(--space-xs) ;
+    padding-bottom: var(--space-md);
     background: var(--color-ivory);
     color: var(--color-warm-charcoal);
     transform: translateY(100%);
@@ -743,6 +734,7 @@ p {
     font-size: 1.125rem;
     font-weight: 500;
     line-height: 1.2;
+    padding: var(--space-sm) 0 0 var(--space-lg);
 }
 
 .archive-description {
@@ -751,6 +743,8 @@ p {
     font-size: 0.875rem;
     line-height: 1.4;
     margin-bottom: var(--space-xs);
+    padding: 0 0 0 var(--space-lg);
+    margin-top: -0.3rem;
 }
 
 .archive-year {
@@ -761,6 +755,7 @@ p {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin: 0;
+    padding: 0 0 0 var(--space-lg);
 }
 
 /* Lightbox Styles */
@@ -1186,7 +1181,7 @@ p {
     }
 
     .portfolio-content {
-        padding: var(--space-lg);
+        padding: var(--space-sm) var(--space-md);
     }
 
     .contact-form {
@@ -1406,34 +1401,7 @@ p {
         border-top: 1px solid var(--color-light-gray);
         pointer-events: auto;
         margin: 0;
-        padding: var(--space-lg) var(--space-xl);
-    }
-
-    .portfolio-title {
-        font-family: var(--font-serif);
-        color: var(--color-forest-green);
-        font-size: 1.125rem;
-        font-weight: 500;
-        line-height: 1.2;
-        margin-bottom: var(--space-xs);
-    }
-
-    .portfolio-description {
-        font-family: var(--font-sans);
-        color: var(--color-warm-gray);
-        font-size: 0.875rem;
-        line-height: 1.4;
-        margin-bottom: var(--space-xs);
-    }
-
-    .portfolio-year {
-        font-family: var(--font-sans);
-        color: var(--color-sage-green);
-        font-size: 0.75rem;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin: 0;
+         padding: var(--space-sm) var(--space-md);
     }
 
     .nav-links a::after {
@@ -1595,3 +1563,4 @@ p {
         transition: none;
     }
 }
+
