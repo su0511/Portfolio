@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media System Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/project-viewer.css">
+    <style>
+        .test-container {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 2rem;
+        }
+        .test-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .test-portfolio-item {
+            width: 300px;
+            height: 200px;
+            margin: 1rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-cursor">
+        <div class="cursor-dot"></div>
+    </div>
+
+    <div class="test-container">
+        <h1>媒体轮播系统测试</h1>
+        
+        <!-- Test Index Slideshow -->
+        <div class="test-section">
+            <h2>首页轮播测试</h2>
+            <p>鼠标悬停在下面的卡片上应该开始轮播：</p>
+            <div class="portfolio-grid">
+                <a href="project1.html" class="portfolio-item test-portfolio-item" data-project="project1">
+                    <div class="portfolio-image">
+                        <img src="assets/brand1.png" alt="Test Project">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Test Project 1</h3>
+                        <p class="portfolio-description">Hover to test slideshow</p>
+                        <span class="portfolio-year">2025</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Test Project Viewer with Layout -->
+        <div class="test-section">
+            <h2>项目查看器布局测试</h2>
+            <p>模拟真实的项目页面布局，展示透明背景的箭头按钮：</p>
+
+            <div class="project-content">
+                <div class="project-text">
+                    <div class="project-overview">
+                        <h3>Project Overview</h3>
+                        <p>这是第一段文字，图片应该与这段文字的开头对齐。</p>
+                        <p>这是第二段文字，用来展示文本内容。</p>
+                    </div>
+
+                    <div class="project-details">
+                        <h4>Project Details</h4>
+                        <div class="detail-item">
+                            <span class="detail-label">Year:</span>
+                            <span class="detail-value">2025</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Category:</span>
+                            <span class="detail-value">Test Project</span>
+                        </div>
+                    </div>
+                </div>
+
+                <main class="project-media" data-project="project1">
+                    <div class="media-frame">
+                        <!-- Media will be loaded here -->
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- Media List Info -->
+        <div class="test-section">
+            <h2>媒体文件状态</h2>
+            <div id="media-status">
+                <p>正在检查媒体文件...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="assets/js/index-slideshow.js" defer></script>
+    <script src="assets/js/project-viewer.js" defer></script>
+    
+    <script>
+        // Test media file availability
+        document.addEventListener('DOMContentLoaded', async function() {
+            const statusDiv = document.getElementById('media-status');
+            const testFiles = [
+                'media/project1/manifest.json',
+                'media/project1/1.jpg',
+                'media/project1/2.jpg',
+                'media/project1/3.jpg'
+            ];
+            
+            let statusHTML = '<h3>文件检查结果：</h3><ul>';
+            
+            for (const file of testFiles) {
+                try {
+                    const response = await fetch(file, { method: 'HEAD' });
+                    const status = response.ok ? '✅ 存在' : '❌ 不存在';
+                    statusHTML += `<li>${file}: ${status}</li>`;
+                } catch (error) {
+                    statusHTML += `<li>${file}: ❌ 错误</li>`;
+                }
+            }
+            
+            statusHTML += '</ul>';
+            statusDiv.innerHTML = statusHTML;
+        });
+    </script>
+</body>
+</html>

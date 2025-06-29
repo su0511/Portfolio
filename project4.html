@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/project-viewer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
  
@@ -63,13 +64,12 @@
                     </div>
                 </div>
 
-                <div class="project-images">
-                    <img src="assets/type1.jpg" alt="Typography Project 1" class="project-image">
-                    <img src="assets/type2.jpg" alt="Typography Project 2" class="project-image">
-                    <img src="assets/type3.jpg" alt="Typography Project 3" class="project-image">
-                    <img src="assets/type4.jpg" alt="Typography Project 4" class="project-image">
-                    <img src="assets/type5.jpg" alt="Typography Project 5" class="project-image">
-                </div>
+                <!-- Project Media Viewer -->
+                <main class="project-media" data-project="project4">
+                    <div class="media-frame">
+                        <!-- Media will be dynamically loaded here -->
+                    </div>
+                </main>
             </div>
             
             <div class="project-navigation">
@@ -91,5 +91,6 @@
 
 
     <script src="script.js"></script>
+    <script src="assets/js/project-viewer.js" defer></script>
 </body>
 </html>

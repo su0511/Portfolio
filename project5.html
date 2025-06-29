@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/project-viewer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body id="top">
@@ -61,13 +62,12 @@
                     </div>
                 </div>
 
-                <div class="project-images">
-                    <img src="assets/poster1.jpg" alt="Poster Design Project 1" class="project-image">
-                    <img src="assets/poster2.jpg" alt="Poster Design Project 2" class="project-image">
-                    <img src="assets/poster3.jpg" alt="Poster Design Project 3" class="project-image">
-                    <img src="assets/poster4.jpg" alt="Poster Design Project 4" class="project-image">
-                    <img src="assets/poster5.jpg" alt="Poster Design Project 5" class="project-image">
-                </div>
+                <!-- Project Media Viewer -->
+                <main class="project-media" data-project="project5">
+                    <div class="media-frame">
+                        <!-- Media will be dynamically loaded here -->
+                    </div>
+                </main>
             </div>
             
             <div class="project-navigation">
@@ -88,5 +88,6 @@
     </section>
 
     <script src="script.js"></script>
+    <script src="assets/js/project-viewer.js" defer></script>
 </body>
 </html>
